@@ -1,6 +1,12 @@
+* {
+  font-family: "Mukta", sans-serif;
+  box-sizing: border-box;
+}
+/* Login  */
+
 h1 {
-  font-size: 3rem;
-  color: #1da1f2;
+  font-size: 2rem;
+  color: #4286f5;
 }
 
 h3 {
@@ -43,3 +49,81 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0c7dbc;
 }
+
+/* Login  */
+
+/* Header  */
+.logo {
+  width: 3rem;
+  height: auto;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #063970;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+/* Header  */
+
+/* Mainpage  */
+
+.mainpageContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.footerback {
+  display: flex;
+  justify-content: center;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #eeeee4;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.footerCenter {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 8rem;
+  height: 3rem;
+  border-radius: 5px;
+  background-color: #063970;
+  color: white;
+}
+.login {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.tweetContainer {
+  display: flex;
+  justify-content: center;
+}
+.tweets {
+  display: flex;
+  max-width: 70%;
+  justify-content: space-between;
+  border: 2px solid gray;
+}
+.footerContent {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mainpage  */
