@@ -2,56 +2,6 @@
   font-family: "Mukta", sans-serif;
   box-sizing: border-box;
 }
-/* Login  */
-
-h1 {
-  font-size: 2rem;
-  color: #4286f5;
-}
-
-h3 {
-  font-size: 1.5rem;
-  color: #1da1f2;
-  margin-bottom: 1rem;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-input[type="text"],
-input[type="password"] {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
-}
-
-button[type="submit"] {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  background-color: #1da1f2;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #0c7dbc;
-}
-
-/* Login  */
-
 /* Header  */
 .logo {
   width: 4rem;
@@ -83,6 +33,9 @@ button[type="submit"]:hover {
 .footerback {
   display: flex;
   justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 .footer {
   display: flex;
@@ -94,7 +47,7 @@ button[type="submit"]:hover {
   padding-top: 2rem;
   padding-bottom: 2rem;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -144,3 +97,77 @@ button[type="submit"]:hover {
   font-weight: 600;
 }
 /* Mainpage  */
+
+/* Sign-up Page start */
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+form {
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+
+.ui.divider {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.uiform {
+  display: flex;
+  flex-direction: column;
+}
+
+.uiform .field {
+  margin-bottom: 20px;
+}
+
+.uiform .field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.uiform .field input[type="text"],
+.uiform .field input[type="email"],
+.uiform .field input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.btn {
+  background-color: #fac202;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: black;
+}
+.error {
+  color: red;
+}
+
+/* Sign-up Page end */

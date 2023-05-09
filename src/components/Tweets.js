@@ -44,7 +44,7 @@ const tweets = [
 ];
 function Tweets() {
   return (
-    <>
+    <div className="">
       {tweets.map((tweet) => (
         <div>
           <div className="max-w-xl mx-auto border border-slate-300 bg-[#e0e0e0] mt-6 p-4 shadow-xl rounded-xl">
@@ -77,7 +77,7 @@ function Tweets() {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
