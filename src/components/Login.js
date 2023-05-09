@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -20,9 +19,7 @@ function Login() {
 
   return (
     <div>
-      <h1>FreeSpeach</h1>
       <h3>Log In</h3>
-
       <form onSubmit={handleSubmit}>
         <label>
           Email:
@@ -30,7 +27,7 @@ function Login() {
         </label>
         <br />
         <label>
-          Passowrd:
+          Password:
           <input
             type="password"
             value={password}
