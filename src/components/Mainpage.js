@@ -1,5 +1,5 @@
 function Mainpage() {
-  return <div>aaaaa</div>;
+  return <div>mainpage</div>;
 }
 
 export default Mainpage;

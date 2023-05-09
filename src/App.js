@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Mainpage from "./components/Mainpage";
 import Signup from "./components/Signup";
+import Profile from "./components/Profile";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 function App() {
   return (
