@@ -22,6 +22,7 @@ function Signup() {
       .post("https://wit-courses-api2.onrender.com/signup", data)
       .then((res) => {
         localStorage.setItem("freespeech", res.data.token);
+        console.log(res.data);
         setIsLogin(!isLogin);
         setTimeout(() => {
           history.push("/");

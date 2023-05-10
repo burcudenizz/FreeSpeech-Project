@@ -47,93 +47,40 @@ const tweetData = [
 ];
 
 function Tweets() {
-  const [tweets, setTweets] = useState();
-  const [isLogin, setIsLogin] = useState("false");
-
-  useEffect(() => {
-    axiosWithAuth()
-      .get("https://wit-courses-api2.onrender.com/entries")
-      .then((response) => {
-        setTweets(response.data);
-        setIsLogin(!isLogin);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
   return (
     <div className="mb-[9rem] mt-[1rem]">
-      {!isLogin === "true" ? (
-        tweetData.map((tweet) => (
-          <div key={tweet.id}>
-            <div className="max-w-xl mx-auto border border-slate-300 bg-[#e0e0e0] mt-6 p-4 shadow-xl rounded-xl">
-              <div className="flex gap-2 items-center">
-                <img
-                  src={tweet.user.avatar}
-                  alt=""
-                  className="w-14 rounded-full"
-                />
-                <div className="flex-1">
-                  <h1 className="font-bold text-lg leading-none">
-                    {tweet.user.name}
-                  </h1>
-                  <h2 className="text-slate-600 leading-none">
-                    {tweet.user.nick}
-                  </h2>
-                </div>
-                <button>...</button>
+      {tweetData.map((tweet) => (
+        <div key={tweet.id}>
+          <div className="max-w-xl mx-auto border border-slate-300 bg-[#e0e0e0] mt-6 p-4 shadow-xl rounded-xl">
+            <div className="flex gap-2 items-center">
+              <img
+                src={tweet.user.avatar}
+                alt=""
+                className="w-14 rounded-full"
+              />
+              <div className="flex-1">
+                <h1 className="font-bold text-lg leading-none">
+                  {tweet.user.name}
+                </h1>
+                <h2 className="text-slate-600 leading-none">
+                  {tweet.user.nick}
+                </h2>
               </div>
-              <p className="leading-tight py-3">{tweet.body}</p>
-              <p className="text-slate-600">{tweet.created_at}</p>
-              <div className="flex gap-2 items-center text-slate-600 border-t">
-                <div>
-                  <span className="font-bold">{tweet.reactions.rt}</span>{" "}
-                  Retweets
-                </div>
-                <div>
-                  <span className="font-bold">{tweet.reactions.like}</span>{" "}
-                  Likes
-                </div>
+              <button>...</button>
+            </div>
+            <p className="leading-tight py-3">{tweet.body}</p>
+            <p className="text-slate-600">{tweet.created_at}</p>
+            <div className="flex gap-2 items-center text-slate-600 border-t">
+              <div>
+                <span className="font-bold">{tweet.reactions.rt}</span> Retweets
+              </div>
+              <div>
+                <span className="font-bold">{tweet.reactions.like}</span> Likes
               </div>
             </div>
           </div>
-        ))
-      ) : (
-        <>
-          {tweets &&
-            tweets.map((tweet) => (
-              <div key={tweet.id}>
-                <div className="max-w-xl mx-auto border border-slate-300 bg-[#e0e0e0] mt-6  p-4 shadow-xl rounded-xl">
-                  <div className="flex gap-2 items-center">
-                    <img
-                      src={tweet.img_ur}
-                      alt=""
-                      className="w-14 rounded-full"
-                    />
-                    <div className="flex-1">
-                      <h1 className="font-bold text-lg leading-none">
-                        {tweet.owner_name}
-                      </h1>
-                      <h2 className="text-slate-600 leading-none">
-                        {tweet.owner_name}
-                      </h2>
-                    </div>
-                    <button>...</button>
-                  </div>
-                  <p className="leading-tight py-3">{tweet.body}</p>
-                  <p className="text-slate-600">{tweet.created_at}</p>
-                  <div className="flex gap-2 items-center text-slate-600 border-t">
-                    <div>
-                      <span className="font-bold"></span> Retweets
-                    </div>
-                    <div>
-                      <span className="font-bold"></span> Likes
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </>
-      )}
+        </div>
+      ))}
     </div>
   );
 }
