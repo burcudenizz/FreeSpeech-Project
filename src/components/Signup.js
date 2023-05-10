@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
+
+import { axiosWithAuth } from "./AxiosAuth";
+
 import "../App.css";
 
 function Signup() {
@@ -14,18 +15,16 @@ function Signup() {
 
   const history = useHistory();
 
-  const [isLogin, setIsLogin] = useState("false");
-
   function onSubmit(data) {
     console.log(data);
-    axios
+    axiosWithAuth()
       .post("https://wit-courses-api2.onrender.com/signup", data)
       .then((res) => {
         localStorage.setItem("freespeech", res.data.token);
-        console.log(res.data);
-        setIsLogin(!isLogin);
+        console.log("form submit edildi.", res.data);
+
         setTimeout(() => {
-          history.push("/");
+          history.push("/tweets");
         }, 3000);
       })
       .catch((err) => console.log(err));

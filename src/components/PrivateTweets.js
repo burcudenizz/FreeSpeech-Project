@@ -9,14 +9,16 @@ export default function PrivateTweets() {
     axiosWithAuth()
       .get("https://wit-courses-api2.onrender.com/entries")
       .then((response) => {
-        setTweets(response.data);
-        history.push("/");
+        if (response.status === 200) {
+          setTweets(response.data);
+          history.push("/tweets");
+        }
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
-    <div>
+    <>
       {tweets.map((tweet) => (
         <div key={tweet.id}>
           <div className="max-w-xl mx-auto border border-slate-300 bg-[#e0e0e0] mt-6  p-4 shadow-xl rounded-xl">
@@ -45,6 +47,6 @@ export default function PrivateTweets() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }

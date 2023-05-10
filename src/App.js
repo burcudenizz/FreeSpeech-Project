@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-        <PrivateRoute exact path="/" component={PrivateTweets} />
+        <PrivateRoute exact path="/tweets" component={PrivateTweets} />
         <Route exact path="/profile">
           <Profile />
         </Route>
