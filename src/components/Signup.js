@@ -21,10 +21,13 @@ function Signup() {
       .post("https://wit-courses-api2.onrender.com/signup", data)
       .then((res) => {
         localStorage.setItem("freespeech", res.data.token);
+<<<<<<< Updated upstream
         setIsLogin(!isLogin);
         setTimeout(() => {
           history.push("/");
         }, 3000);
+=======
+>>>>>>> Stashed changes
       })
       .catch((err) => console.log(err));
   }
@@ -87,8 +90,8 @@ function Signup() {
           <div className="field">
             <label>Avatar Url</label>
             <input
-              type="text"
-              name="text"
+              type="url"
+              name="url"
               placeholder="Avatar Url"
               {...register("url", {
                 required: false,
