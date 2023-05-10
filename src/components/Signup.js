@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 
@@ -21,13 +22,10 @@ function Signup() {
       .post("https://wit-courses-api2.onrender.com/signup", data)
       .then((res) => {
         localStorage.setItem("freespeech", res.data.token);
-<<<<<<< Updated upstream
         setIsLogin(!isLogin);
         setTimeout(() => {
           history.push("/");
         }, 3000);
-=======
->>>>>>> Stashed changes
       })
       .catch((err) => console.log(err));
   }
