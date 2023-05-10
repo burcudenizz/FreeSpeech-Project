@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
+import { axiosWithAuth } from "./AxiosAuth";
 const tweetData = [
   {
     body: "Our latest major version includes out-of-the-box improvements like automatic batching, new APIs like startTransition, and streaming server-side rendering with support for Suspense.",
@@ -51,20 +51,18 @@ function Tweets() {
   const [isLogin, setIsLogin] = useState("false");
 
   useEffect(() => {
-    async function fetchTweets() {
-      const response = await axios.get(
-        "https://wit-courses-api2.onrender.com/entries"
-      );
-      setTweets(response.data);
-      setIsLogin("true");
-    }
-
-    fetchTweets();
+    axiosWithAuth()
+      .get("https://wit-courses-api2.onrender.com/entries")
+      .then((response) => {
+        setTweets(response.data);
+        setIsLogin(!isLogin);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   return (
     <div className="mb-[9rem] mt-[1rem]">
-      {isLogin === "false" ? (
+      {!isLogin === "true" ? (
         tweetData.map((tweet) => (
           <div key={tweet.id}>
             <div className="max-w-xl mx-auto border border-slate-300 bg-[#e0e0e0] mt-6 p-4 shadow-xl rounded-xl">

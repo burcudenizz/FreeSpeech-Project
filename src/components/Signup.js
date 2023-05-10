@@ -13,15 +13,18 @@ function Signup() {
 
   const history = useHistory();
 
+  const [isLogin, setIsLogin] = useState("false");
+
   function onSubmit(data) {
     console.log(data);
     axios
       .post("https://wit-courses-api2.onrender.com/signup", data)
       .then((res) => {
         localStorage.setItem("freespeech", res.data.token);
+        setIsLogin(!isLogin);
         setTimeout(() => {
           history.push("/");
-        }, 4000);
+        }, 3000);
       })
       .catch((err) => console.log(err));
   }
@@ -36,9 +39,9 @@ function Signup() {
             <label>Username</label>
             <input
               type="text"
-              name="username"
+              name="name"
               placeholder="Username"
-              {...register("username", {
+              {...register("name", {
                 required: true,
                 maxLength: 20,
                 minLength: 3,
