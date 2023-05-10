@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
-
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import "../App.css";
 
 function Signup() {
@@ -7,8 +8,23 @@ function Signup() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm({ mode: "onChange" });
+  // const onSubmit = (data) => console.log(data);
+
+  const history = useHistory();
+
+  function onSubmit(data) {
+    console.log(data);
+    axios
+      .post("https://wit-courses-api2.onrender.com/signup", data)
+      .then((res) => {
+        localStorage.setItem("freespeech", res.data.token);
+        setTimeout(() => {
+          history.push("/");
+        }, 4000);
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div className="form-container">
@@ -65,7 +81,18 @@ function Signup() {
               <span className="error">*Invalid email address</span>
             )}
           </div>
-
+          <div className="field">
+            <label>Avatar Url</label>
+            <input
+              type="text"
+              name="text"
+              placeholder="Avatar Url"
+              {...register("url", {
+                required: false,
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
+              })}
+            />
+          </div>
           <div className="field">
             <label>Password</label>
             <input
