@@ -7,19 +7,23 @@ import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 import PrivateTweets from "./components/PrivateTweets";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useState } from "react";
+
 function App() {
+  const [isSignedUp, setIsSignedUp] = useState(false);
+
   return (
     <BrowserRouter>
       <Header />
       <Switch>
         <Route exact path="/">
-          <Mainpage />
+          <Mainpage isSignedUp={isSignedUp} />
         </Route>
         <Route exact path="/signup">
-          <Signup />
+          <Signup setIsSignedUp={setIsSignedUp} />
         </Route>
         <Route exact path="/login">
-          <Login />
+          <Login setIsSignedUp={setIsSignedUp} />
         </Route>
         <PrivateRoute exact path="/" component={PrivateTweets} />
         <Route exact path="/profile">

@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 
-function Signup() {
+function Signup({ setIsSignedUp }) {
   const {
     register,
     handleSubmit,
@@ -14,8 +14,6 @@ function Signup() {
 
   const history = useHistory();
 
-  const [isLogin, setIsLogin] = useState("false");
-
   function onSubmit(data) {
     console.log(data);
     axios
@@ -23,8 +21,9 @@ function Signup() {
       .then((res) => {
         localStorage.setItem("freespeech", res.data.token);
         console.log(res.data);
-        setIsLogin(!isLogin);
+
         setTimeout(() => {
+          setIsSignedUp(true);
           history.push("/");
         }, 3000);
       })

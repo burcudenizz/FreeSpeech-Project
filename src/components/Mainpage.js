@@ -1,10 +1,11 @@
 import Tweets from "./Tweets";
 import Footer from "./Footer";
-function Mainpage() {
+import PrivateTweets from "./PrivateTweets";
+function Mainpage({ isSignedUp }) {
   return (
     <div className="mainpageContainer">
-      <Tweets />
-      <Footer />
+      {!isSignedUp ? <Tweets /> : <PrivateTweets />}
+      {!isSignedUp ? <Footer /> : ""}
     </div>
   );
 }

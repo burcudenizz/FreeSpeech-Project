@@ -1,15 +1,33 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 import "../App.css";
+import { useHistory } from "react-router-dom";
 
-function Login() {
+function Login({ setIsSignedUp }) {
+  const history = useHistory();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-
+  // const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    axios
+      .post("https://wit-courses-api2.onrender.com/login", data)
+      .then((response) => {
+        // handle success response
+        console.log(response);
+        setTimeout(() => {
+          setIsSignedUp(true);
+          history.push("/");
+        }, 3000);
+      })
+      .catch((error) => {
+        // handle error response
+        console.error(error);
+      });
+  };
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit(onSubmit)}>
