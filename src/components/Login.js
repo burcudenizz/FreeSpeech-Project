@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
+import { useState } from "react";
 import "../App.css";
 import { useHistory } from "react-router-dom";
 
 function Login({ setIsSignedUp }) {
+  const [profildata, setData] = useState({});
+
   const history = useHistory();
   const {
     register,
@@ -17,7 +19,9 @@ function Login({ setIsSignedUp }) {
       .post("https://wit-courses-api2.onrender.com/login", data)
       .then((response) => {
         // handle success response
-        console.log(response);
+
+        setData(response.data);
+        console.log("profildata", profildata);
         setTimeout(() => {
           setIsSignedUp(true);
           history.push("/");

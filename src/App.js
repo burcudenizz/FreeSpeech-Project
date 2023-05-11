@@ -14,7 +14,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header setIsSignedUp={setIsSignedUp} isSignedUp={isSignedUp} />
       <Switch>
         <Route exact path="/">
           <Mainpage isSignedUp={isSignedUp} />
